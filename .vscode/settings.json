@@ -1,0 +1,9 @@
+{
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "search.useGlobalIgnoreFiles": false,
+  "search.useParentIgnoreFiles": true,
+  "editor.guides.bracketPairs": true,
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
