@@ -1,0 +1,15 @@
+.gray-box {
+  background-color: gray;
+  width: 64px; height: 64px;
+}
+
+#tableName {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#tableName tr, #tableName td {
+  border: 1px solid black;
+  width: 75px;
+  text-align: center;
+}
