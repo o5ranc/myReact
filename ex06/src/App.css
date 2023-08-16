@@ -1,0 +1,19 @@
+.rootContainer {
+  width: 1000px;
+  margin: 1rem;
+  
+  padding: 1rem;
+  border: 10px solid red;
+
+ 
+}
+
+#except {
+  display:flex;
+}
+
+.subContainer {
+  margin: 1rem;
+  padding: 1rem;
+  border: 10px solid red;
+}
