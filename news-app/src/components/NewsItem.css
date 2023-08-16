@@ -1,0 +1,22 @@
+.newsItemBlock {
+  display: flex;
+  margin-top: 3rem;
+  
+}
+
+.thumnail img {
+  width: 160px;
+  height: 100px;
+}
+
+.contents {
+  margin-left: 1rem;
+}
+
+.contents h2 {
+  margin-top: 0.2rem;
+}
+
+.contents a {
+  color: black;
+}
