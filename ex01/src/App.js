@@ -44,7 +44,7 @@ function Create(props) {
       <form onSubmit={
         event => {
           event.preventDefault();
-          const title = event.target.value;
+          const title = event.target.title.value;
           const body = event.target.body.value;
           props.onCreate(title, body);
         }
@@ -57,6 +57,33 @@ function Create(props) {
   )
 }
 
+
+function Update(props) {
+  const [title, setTitle] = useState(props.title);
+  const [body, setBody] = useState(props.body);
+  
+  return (
+    <article>
+      <h2>Update</h2>
+      <form onSubmit={
+        event => {
+          event.preventDefault();
+          const title = event.target.title.value;
+          const body = event.target.body.value;
+          props.onUpdate(title, body);
+        }
+      }>
+        <input type="text" name='title' placeholder='title' value={title} 
+          onChange={(event) => setTitle(event.target.value)}/>
+        <p><textarea name="body" value={body}
+          onChange={(event) => setBody(event.target.value)}></textarea></p>
+        <p><input type='submit' value='Update'></input></p>
+      </form>
+    </article>
+  )
+}
+
+
 function Nav(props) {
   console.log(props);
 
@@ -68,7 +95,7 @@ function Nav(props) {
         event => {
           event.preventDefault();
           // props.onChangeMode(Number(event.target.id)); // == 로 비교시
-          props.onChangeMode(Number(event.target.id)); // === 로 비교시
+          return props.onChangeMode(Number(event.target.id)); // === 로 비교시
         }
       }>{t.body}</a></li>);
   }
@@ -111,9 +138,12 @@ function App() {
   }
 
   let content = null;
+  let contextControl = null;
+
   if(mode === 'WELCOME') {
     content = <Article title='Welcome' body='Hello, Web!!'></Article>
   } else if(mode === 'READ') {
+    
     let title, body = null;
     for(let i = 0; i < topics.length; i++) {
       console.log(topics[i].id, id);
@@ -124,18 +154,57 @@ function App() {
       }
     }
     content = <Article title={title} body={body}></Article>
-    contextControl = <li><a href='/update'>Update</a></li>
+    contextControl = <><li><a href={'/update/' + id} onClick={(event) => {
+        event.preventDefault();
+        setMode('UPDATE');
+      }}>Update</a></li>
+      <li><input type='button' value='Delete' onClick={() => {
+        const newTopics = [];
+        for(let i = 0; i < topics.length; i++) {
+          if(topics[i].id !== id) { // 일치하는것 빼고 나머지 모두 push하므로 삭제 효과
+            newTopics.push(topics[i]);
+          }
+        }
+        setTopics(newTopics);
+        setMode('WELCOME');
+      }}></input></li>
+      </>
+
   } else if(mode === 'CREATE') {
     content = <Create onCreate={(_title, _body) => {
       const newTopic = {id: nextId, title: _title, body: _body}
       const newTopics = [...topics];
       newTopics.push(newTopic); // 새로운 topic을 추가하고
       setTopics(newTopics); // settopic에 변경된 topics값을 넣어줘 변화 감지
+      setMode('CREATE');
       setId(nextId);
       setNextId(nextId + 1);
     }}></Create>
   } else if(mode === 'UPDATE') {
-    
+    let title, body = null;
+    for(let i = 0; i < topics.length; i++) {
+      console.log(topics[i].id, id);
+      // if(topics[i].id == id) { // 1 과 '1'을 같게 봄
+      if(topics[i].id === id) { // 1 과 '1'을 다르게 봄
+        title = topics[i].title;
+        body = topics[i].body;
+      }
+    }
+
+    content = <Update title={title} body={body} 
+      onUpdate={(title, body) => {
+        const updateTopic = {id: id, title:title, body:body};
+        const newTopics = [...topics]; // 객체가 들어있는 배열이라서 복제때에도 배열로 묶기
+
+        for(let i = 0; i < newTopics.length; i++) {
+          if(newTopics[i].id === id) {
+            newTopics[i] = updateTopic;
+            break;
+          }
+        }
+        setTopics(newTopics);
+      }
+    }></Update>
   }
 
   return (
@@ -183,11 +252,12 @@ function App() {
             setMode('CREATE');
           }}>Create</a>
         </li>
-       <li>
+       {/* <li>
           <a href='/update' onClick={event => {
             setMode('UPDATE');
           }}>Update</a>
-       </li>
+       </li> */}
+       {contextControl}
      </ul>
     </>
   );
