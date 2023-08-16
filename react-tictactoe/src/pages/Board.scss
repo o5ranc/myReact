@@ -1,0 +1,45 @@
+/* .Row {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+  :nth-child(3n) {
+    background-color: red;
+  }
+} */
+
+#BodyContainer {
+  display: block;
+  width: 600px;
+  margin: 40px auto;
+}
+
+.PlayerContainer {
+  div {
+    display: inline-block;
+  }
+
+  span {
+    font-size: 1.8rem;
+    margin-left: 40px;
+    background-color: aquamarine;
+  }
+}
+
+.Row {
+  margin-top: 40px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-rows: 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 300px;
+  float: left;
+}
+
+.PlayerHistory {
+  margin-top: 40px;
+  width: 200px;
+  height: 300px;
+  float: right;
+  border: 1px dotted black;
+}
