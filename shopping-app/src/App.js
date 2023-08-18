@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import { useState } from 'react'
 
@@ -9,9 +10,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import Product from './components/Product';
 import Detail from './components/Detail'
-import shose from './data';
+
 import Cart from './components/Cart';
 import Title2 from './components/Title2'
+import Nike from './components/Nike';
+import shose from './data';
+import inike from './react_data/nike.js';
+
 
 const Title = () => {
   const csst1 = {
@@ -29,7 +34,9 @@ const Title = () => {
 
 function App() {
   const navigate = useNavigate();
+  const [count, setCount] = useState(1);
   const [data, setData] = useState(shose);
+  const [nike, setNike] = useState(inike);
 
   return (
     <div className='App'>
@@ -73,6 +80,34 @@ function App() {
                 </div>
               </div>
               <Title2/>
+              <Button variant='outline-success' count={count} onClick={() => {
+                if(count === 1) {
+                  axios.get('https://raw.githubusercontent.com/o5ranc/myReact/main/shopping-app/src/react_data/nike2.json')
+                  .then((result) => {
+                    console.log('result data : ' , ...result.data);
+                    const nike2 = [...inike, ...result.data];
+                    setNike(nike2);
+                    console.log('result nike2 : ' , nike2);
+                    setCount(count + 1);
+                  })
+                } else if(count === 2) {
+                  axios.get('https://raw.githubusercontent.com/o5ranc/myReact/main/shopping-app/src/react_data/nike3.json')
+                  .then((result) => {
+                    console.log('result data : ' , ...result.data);
+                    const nike2 = [...nike, ...result.data];
+                    setNike(nike2);
+                    console.log('result nike2 : ' , nike2);
+                    setCount(count + 1);
+                  })
+                }
+              }}> +3 개 상품 더 보기</Button>
+              <div className='container mt-5'>
+                <div className='row'>
+                  { nike.map((ele, i) => {
+                    return <Nike nike={nike[i]}/>
+                  }) }
+                </div>
+              </div>
             </div>
           }
         ></Route>
