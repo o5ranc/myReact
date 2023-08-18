@@ -3,12 +3,13 @@ import './App.css';
 import EventHandling from './components/EventHandling';
 import EventPractice from './components/EventPractice';
 import InputSample from './components/InputSample';
+import InputSampleRef from './components/InputSampleRef';
 // import InputSample2 from './components/InputSample2';
 import UserList from './components/UserList';
-// import ValidationSample from './components/ValidationSample';
+import ValidationSample from './components/ValidationSample';
 import CreateUser from './components/CreateUser';
-// import RefLocal from './components/RefLocal';
-// import RefLocal2 from './components/RefLocal2';
+import RefLocal from './components/RefLocal';
+import RefLocal2 from './components/RefLocal2';
 import Timer from './components/Timer';
 
 function countActiveUsers(users) {
@@ -96,8 +97,12 @@ function App() {
     <div>
       {/* showTimer && <Timer/> 
       <button onClick={() => setShowTimer(!showTimer)}>Toggle Timer</button>*/}
-      <InputSample/>
-      <EventPractice></EventPractice>
+     
+     <CreateUser username={username} email={email}
+                  onChange={onChange} onCreate={onCreate}></CreateUser>
+    <UserList users={users} onDelete={onDelete} onToggle={onToggle}></UserList>
+      <div>사용 활성자 수 : {count}</div>
+                  
       
        {/*<CreateUser username={username} email={email}
                   onChange={onChange} onCreate={onCreate}></CreateUser>
@@ -108,9 +113,14 @@ function App() {
       <EventHandling></EventHandling>
       <EventPractice></EventPractice>
       <InputSample2></InputSample2>
-      <ValidationSample></ValidationSample> */}
-      {/* <RefLocal></RefLocal>
-      <RefLocal2></RefLocal2> */}
+      <ValidationSample></ValidationSample>
+       <InputSample/>
+      <EventPractice></EventPractice>
+      <InputSampleRef/>
+      <ValidationSample></ValidationSample>
+       */}
+      {/*<RefLocal></RefLocal>
+      <RefLocal2></RefLocal2>*/}
     </div>
   );
 }
