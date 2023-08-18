@@ -16,6 +16,7 @@ import Title2 from './components/Title2'
 import Nike from './components/Nike';
 import shose from './data';
 import inike from './react_data/nike.js';
+import Footer from './components/Footer';
 
 
 const Title = () => {
@@ -108,6 +109,7 @@ function App() {
                   }) }
                 </div>
               </div>
+              <Footer/>
             </div>
           }
         ></Route>
