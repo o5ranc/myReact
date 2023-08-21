@@ -113,7 +113,7 @@ function App() {
             </div>
           }
         ></Route>
-        <Route path="/detail/:id" element={<Detail data={shose}/>}></Route>
+        <Route path="/detail/:id?" element={<Detail data={shose}/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<Member/>}></Route>  
