@@ -2,6 +2,7 @@
 .bookInfoViewWrapper {
   float: right;
   width: 30%;
+  hei
   box-sizing: border-box;
   background-color: gainsboro;
   padding: 20px 30px;
@@ -22,14 +23,8 @@
   box-sizing: border-box;
 }
 
-
-
-.seatLevel {
-
-}
-
 th, td {
-  border-bottom: 1px solid black;
+  border:  1px solid black;
   padding: 10px;
 }
 
