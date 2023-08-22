@@ -7,3 +7,21 @@
   font-weight: bold;
   border-bottom: 1px bold black;
 }
+
+.textLeft {
+    float: left;
+    max-width: 135px;
+    font-size: 13px;
+    line-height: 30px;
+    letter-spacing: -1px;
+    word-break: break-all;
+}
+
+.textRight {
+  float: right;
+  max-width: 135px;
+  font-size: 13px;
+  line-height: 30px;
+  letter-spacing: -1px;
+  word-break: break-all;
+}

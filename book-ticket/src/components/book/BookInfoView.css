@@ -2,10 +2,9 @@
 .bookInfoViewWrapper {
   float: right;
   width: 30%;
-  hei
+  height: 100%;
   box-sizing: border-box;
-  background-color: gainsboro;
-  padding: 20px 30px;
+  padding: 20px 30px 20px 20px;
 }
 
 .titleContainer {
