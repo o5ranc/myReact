@@ -1,0 +1,52 @@
+
+.bookInfoViewWrapper {
+  float: right;
+  width: 30%;
+  box-sizing: border-box;
+  background-color: gainsboro;
+  padding: 20px 30px;
+}
+
+.titleContainer {
+  flex:1
+}
+
+.titleLeft {
+  width: 41px;
+  float: left; 
+  box-sizing: border-box;
+}
+
+.titleRight {
+  float: right; 
+  box-sizing: border-box;
+}
+
+
+
+.seatLevel {
+
+}
+
+th, td {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+th {
+  width: 40%;
+}
+
+td {
+  width: 60%;
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+  
+ul {
+  height: 41px;
+}

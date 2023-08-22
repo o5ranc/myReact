@@ -1,0 +1,9 @@
+.changeDateContainer {
+  width: 100%;
+  display: flex;
+}
+
+.subTitle {
+  font-weight: bold;
+  border-bottom: 1px bold black;
+}

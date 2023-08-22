@@ -82,7 +82,7 @@ function App() {
               </div>
               <Title2/>
               <Button variant='outline-success' count={count} onClick={() => {
-                if(count === 1) {
+                if(2 === 1) {
                   axios.get('https://raw.githubusercontent.com/o5ranc/myReact/main/shopping-app/src/react_data/nike2.json')
                   .then((result) => {
                     console.log('result data : ' , ...result.data);

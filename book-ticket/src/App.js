@@ -1,25 +1,25 @@
 import styled from 'styled-components'
+import { BrowserRouter } from 'react-router-dom'
 
 import BookMainPage from './pages/book/BookMainPage'
-
 import '../src/css/reset.css'
 
-const RootWrapper = styled.div`
+const SRootWrapper = styled.div`
   width: 1280px;
   height: 100vh;
   margin: 0 auto;
-  background-color: #fff6f6;
+  background-color: white;
+  border: 1px solid black;
+  box-sizing: border-box;
 `
-
-const onBookBtnClick = () => {
-
-}
 
 function App() {
   return (
-    <RootWrapper>
-      <BookMainPage/>
-    </RootWrapper>
+   <BrowserRouter>
+      <SRootWrapper>
+        <BookMainPage/>
+      </SRootWrapper>
+   </BrowserRouter>
   );
 }
 
