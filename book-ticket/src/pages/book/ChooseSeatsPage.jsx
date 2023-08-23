@@ -1,14 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import BookTitle from '../../components/book/BookTitle'
 import './ChooseSeatsPage.css'
+import BookTitle from '../../components/book/BookTitle'
+
 
 const Line = styled.hr`
   border: 0.1px solid #ECEDFC;
 `;
 
 const ChooseSeatsPage = () => {
+  const SEATS_COLUMN_SIZE = 10;
+  let seats = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ];
+
+
   return (
     <div className='chooseSeatsContainer'>
       <BookTitle width='100%' isLeft>[기획공연] 뮤지컬 '사랑은 아름다워'-광주</BookTitle>
@@ -16,7 +26,18 @@ const ChooseSeatsPage = () => {
       <div className='stageContainer'>
         <span>STAGE</span>
         <div className='stageBackground'>
-        
+          <div className='seatContainer'>
+            { seats.map((seat, idx) => {
+                console.log('seats : ', idx);
+                  return (
+                    seat.map((s, idx) => {
+                    console.log('s : ', idx);
+                    return <div className='seat'>{idx}</div>
+                  })
+                )
+              })
+            }
+          </div>
         </div>
       </div>
     </div>
