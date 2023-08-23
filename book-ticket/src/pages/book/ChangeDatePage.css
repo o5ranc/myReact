@@ -1,5 +1,6 @@
 .changeDateContainer {
   width: 100%;
+  margin-top: 30px;
   display: flex;
 }
 
@@ -8,20 +9,22 @@
   border-bottom: 1px bold black;
 }
 
-.textLeft {
-    float: left;
-    max-width: 135px;
-    font-size: 13px;
-    line-height: 30px;
-    letter-spacing: -1px;
-    word-break: break-all;
+.topContainer {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
 }
 
-.textRight {
-  float: right;
-  max-width: 135px;
+.textLine {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1rem;
+
+}
+
+.textLeft, .textRight {
   font-size: 13px;
-  line-height: 30px;
+  line-height: 20px;
   letter-spacing: -1px;
   word-break: break-all;
 }

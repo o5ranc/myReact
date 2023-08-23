@@ -40,7 +40,7 @@ const BookMainPage = () => {
   return (
    <>
       <BookButton onClick={handleBookBtnClick}/>
-      <div>
+      <div style={{backgroundColor: '#999999'}}>
         <BookHeader onBookStepClick={handleStepClick}/>
       </div>
       <div className='bookLeftContainer'>
